@@ -11,6 +11,20 @@
 # Theme binaries (downloaded by Obsidian)
 .obsidian/themes/
 
+# Personal / client content (user-specific, not template)
+test-*.md
+daily/*.md
+!daily/.gitkeep
+kanban/*.md
+!kanban/.gitkeep
+memory/cmasdental-*.md
+memory/lista-de-precios-*.md
+memory/sesiones.md
+memory/sucursales-*.md
+memory/workflow-*.md
+memory/session-*.md
+memory/thomas-*.md
+
 # OS
 Thumbs.db
 .DS_Store
