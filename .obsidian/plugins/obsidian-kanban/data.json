@@ -1,0 +1,12 @@
+{
+  "new-note-template": "",
+  "show-checkbox": false,
+  "date-format": "YYYY-MM-DD",
+  "time-format": "HH:mm",
+  "archive-with-date": true,
+  "prepend-archive-date": true,
+  "move-tags": true,
+  "hide-tags-display": false,
+  "show-relative-date": true,
+  "list-layout": "list"
+}

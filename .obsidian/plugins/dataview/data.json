@@ -1,0 +1,7 @@
+{
+  "enable_in_dv": true,
+  "enable_dataviewjs": true,
+  "execution_interval": 2000,
+  "enable_for_obsidian_mobile": true,
+  "refresh_interval": 10
+}

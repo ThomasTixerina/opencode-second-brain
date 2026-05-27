@@ -1,0 +1,10 @@
+{
+  "templater-obsidian:insert-template": [
+    {
+      "key": "t",
+      "modifiers": [
+        "Mod"
+      ]
+    }
+  ]
+}

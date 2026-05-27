@@ -1,0 +1,108 @@
+{
+  "updatedAt": "2026-05-27T21:53:48.800Z",
+  "createdAt": "2026-05-27T18:45:15.187Z",
+  "id": "tpkJQyuUcHqlXkdA",
+  "name": "Vault Gateway",
+  "description": null,
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "id": "d47efdeb-7c99-4284-ac90-e48286d7f901",
+      "webhookId": "0c3ab153-6134-4ede-bba6-9866d04fb023",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        256,
+        304
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "vault-gateway",
+        "responseMode": "lastNode",
+        "options": {}
+      }
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Base64 Encode Content",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        430,
+        304
+      ],
+      "parameters": {
+        "language": "javaScript",
+        "mode": "runOnceForAllItems",
+        "jsCode": "const items = $input.all().map(item => ({\n  json: {\n    path: item.json.body.path,\n    content: Buffer.from(item.json.body.content).toString('base64'),\n    commitMessage: item.json.body.commitMessage,\n    sha: item.json.body.sha || undefined,\n  }\n}));\nreturn items;"
+      }
+    },
+    {
+      "id": "20f56c50-80f8-44dd-8ad5-5b28be2c99df",
+      "name": "Create GitHub File",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        660,
+        304
+      ],
+      "parameters": {
+        "method": "PUT",
+        "url": "=https://api.github.com/repos/ThomasTixerina/second-brain/contents/{{ $json.path }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "githubOAuth2Api",
+        "sendBody": true,
+        "contentType": "json",
+        "specifyBody": "keypair",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "message",
+              "value": "={{ $json.commitMessage }}"
+            },
+            {
+              "name": "content",
+              "value": "={{ $json.content }}"
+            },
+            {
+              "name": "sha",
+              "value": "={{ $json.sha }}"
+            }
+          ]
+        },
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Base64 Encode Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Base64 Encode Content": {
+      "main": [
+        [
+          {
+            "node": "Create GitHub File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "tags": []
+}

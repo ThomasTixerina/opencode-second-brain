@@ -1,0 +1,10 @@
+{
+  "template_folder": "templates",
+  "trigger_on_file_creation": true,
+  "automatic_jump_to_cursor": true,
+  "enable_system_commands": false,
+  "syntax_highlight": true,
+  "date_format": "YYYY-MM-DD",
+  "time_format": "HH:mm",
+  "enable_file_renaming": true
+}

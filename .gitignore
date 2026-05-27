@@ -1,0 +1,20 @@
+# Obsidian — workspace state (machine-local)
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/cache
+
+# Plugin binaries (downloaded by Obsidian from Community Plugins)
+.obsidian/plugins/*/main.js
+.obsidian/plugins/*/manifest.json
+.obsidian/plugins/*/styles.css
+
+# Theme binaries (downloaded by Obsidian)
+.obsidian/themes/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Editor
+*.swp
+*.swo

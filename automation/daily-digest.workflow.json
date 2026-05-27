@@ -1,0 +1,99 @@
+{
+  "updatedAt": "2026-05-27T18:59:52.722Z",
+  "createdAt": "2026-05-27T18:45:23.448Z",
+  "id": "FNBEmCoMXY4FY5bD",
+  "name": "Daily Digest",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "4a4a63f6-8da2-4a93-bb13-80dcc228cdc6",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        256,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const now = new Date();\nconst year = now.getFullYear();\nconst month = String(now.getMonth() + 1).padStart(2, '0');\nconst day = String(now.getDate()).padStart(2, '0');\nconst dateStr = `${year}-${month}-${day}`;\n\nreturn [\n  {\n    json: {\n      dailyPath: `daily/${dateStr}.md`,\n      date: dateStr,\n    },\n  },\n];"
+      },
+      "id": "aa49e3d4-1401-4705-924a-0cdac32e826c",
+      "name": "Generate Daily Path",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        512,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": {
+          "mode": "name",
+          "value": "ThomasTixerina"
+        },
+        "repository": {
+          "mode": "name",
+          "value": "second-brain"
+        },
+        "filePath": "={{ $json.dailyPath }}",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "id": "6f8e7dc4-4a57-4527-aac1-78828c231b08",
+      "name": "GitHub - Read Daily Note",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1.1,
+      "position": [
+        752,
+        304
+      ],
+      "webhookId": "8fb62461-1dac-4dd4-93f0-b0dc8c7f5ab8"
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Generate Daily Path",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Daily Path": {
+      "main": [
+        [
+          {
+            "node": "GitHub - Read Daily Note",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "tags": []
+}
