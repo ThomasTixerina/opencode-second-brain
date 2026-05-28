@@ -17,13 +17,22 @@ daily/*.md
 !daily/.gitkeep
 kanban/*.md
 !kanban/.gitkeep
-memory/cmasdental-*.md
+memory/project-*.md
+memory/pending-*.md
+memory/user*.md
+memory/flet-*.md
+memory/n8n-miconsul-*.md
+memory/miconsuluno-*.md
+memory/opencode-voice-*.md
+memory/voice-*.md
+memory/pol*.md
 memory/lista-de-precios-*.md
 memory/sesiones.md
 memory/sucursales-*.md
 memory/workflow-*.md
 memory/session-*.md
 memory/thomas-*.md
+memory/cmasdental-*.md
 
 # OS
 Thumbs.db
