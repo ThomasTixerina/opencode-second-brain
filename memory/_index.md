@@ -4,7 +4,7 @@ tags: [memory, index]
 
 # Memoria Persistente
 
-> Sincronizado desde OpenCode memory stores. Última actualización: 2026-05-31 15:50
+> Sincronizado desde OpenCode memory stores. Última actualización: 2026-06-09 15:04
 
 ## Entradas
 
@@ -49,6 +49,7 @@ tags: [memory, index]
 - [[memory/vault-gatewayworkflowjson.md|vault-gateway.workflow.json]] — *file* (3 observaciones)
 - [[memory/voice-cli.md|voice-cli]] — *project* (7 observaciones)
 - [[memory/voice-cli-project.md|voice-cli-project]] — *project* (5 observaciones)
+- [[memory/voice-widget-bridge-2026-06-09.md|voice-widget-bridge-2026-06-09]] — *session* (9 observaciones)
 
 ## Templates
 - [[templates/memory|Template de Memoria]]
