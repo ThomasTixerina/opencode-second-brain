@@ -4,7 +4,7 @@ tags: [memory, index]
 
 # Memoria Persistente
 
-> Sincronizado desde OpenCode memory stores. Última actualización: 2026-06-09 15:04
+> Sincronizado desde OpenCode memory stores. Última actualización: 2026-06-09 15:08
 
 ## Entradas
 
@@ -50,6 +50,9 @@ tags: [memory, index]
 - [[memory/voice-cli.md|voice-cli]] — *project* (7 observaciones)
 - [[memory/voice-cli-project.md|voice-cli-project]] — *project* (5 observaciones)
 - [[memory/voice-widget-bridge-2026-06-09.md|voice-widget-bridge-2026-06-09]] — *session* (9 observaciones)
+- [[memory/voice-widget-bridge-arch.md|voice-widget-bridge-arch]] — *architecture* (5 observaciones)
+- [[memory/voice-widget-bridge-bugs.md|voice-widget-bridge-bugs]] — *bugs* (2 observaciones)
+- [[memory/voice-widget-bridge-session.md|voice-widget-bridge-session]] — *session* (2 observaciones)
 
 ## Templates
 - [[templates/memory|Template de Memoria]]
