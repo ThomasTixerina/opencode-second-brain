@@ -5,9 +5,10 @@ Bidirectional sync between OpenCode's JSONL memory stores and
 the Obsidian vault's markdown notes.
 
 Commands:
-    python sync-memory.py to-vault          Memory JSONL → vault .md notes
-    python sync-memory.py from-vault        Vault memory/ → stdout as JSONL
-    python sync-memory.py import-sessions   OpenCode session .md → vault daily/
+    python sync-memory.py to-vault                        Memory JSONL → vault memory/
+    python sync-memory.py to-vault --client <c> --project <p>   → clients/<c>/projects/<p>/memory/
+    python sync-memory.py from-vault                      Vault memory/ → stdout as JSONL
+    python sync-memory.py import-sessions   OpenCode session .md → vault clients/<client>/projects/<project>/daily/
     python sync-memory.py watch             Auto-sync on changes (polling)
 """
 
@@ -27,6 +28,18 @@ if hasattr(sys.stdout, "reconfigure"):
 VAULT = Path.home() / "second-brain"
 MEMORY_DIR = Path.home() / ".opencode-memory"
 SESSION_DIR = Path.home() / ".opencode-sessions"
+
+CLIENTS = {
+    "cmasdental": {
+        "projects": ["whatsapp-automation"],
+    },
+    "dr-tomas-tijerina": {
+        "projects": ["miconsuluno", "nestjs-supabase-auth", "voice-cli"],
+    },
+    "personal": {
+        "projects": ["flet-primer-app"],
+    },
+}
 
 SAFE_PATH = "C_Users_user"
 MEMORY_FILE = MEMORY_DIR / f"{SAFE_PATH}.jsonl"
@@ -62,7 +75,7 @@ def write_jsonl(path: Path, items: list):
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
 
 
-def entity_to_md(entity: dict) -> str:
+def entity_to_md(entity: dict, rel_index: str = "memory/_index") -> str:
     name = entity.get("name", "Untitled")
     etype = entity.get("entityType", "")
     observations = entity.get("observations", [])
@@ -87,7 +100,7 @@ def entity_to_md(entity: dict) -> str:
 
     lines.append("")
     lines.append("## Enlaces")
-    lines.append("- [[memory/_index|Todas las memorias]]")
+    lines.append(f"- [[{rel_index}|Todas las memorias]]")
     lines.append("")
 
     return "\n".join(lines)
@@ -131,6 +144,46 @@ def md_to_entity(content: str, filename: str) -> dict:
     }
 
 
+def _sync_to_dir(entities: dict, target: Path, label: str, rel_index: str = "memory/_index") -> int:
+    """Write entities as .md files into target directory. Returns count written."""
+    target.mkdir(parents=True, exist_ok=True)
+    written = 0
+    for name, entity in sorted(entities.items()):
+        filename = sanitize_name(name)
+        path = target / filename
+        content = entity_to_md(entity, rel_index)
+        if path.exists():
+            existing = path.read_text(encoding="utf-8")
+            if (
+                len(content) == len(existing)
+                and SequenceMatcher(None, content, existing).ratio() > 0.98
+            ):
+                continue
+        path.write_text(content, encoding="utf-8")
+        written += 1
+        print(f"  → {filename}")
+
+    print(f"\nSynced {written} entities to vault {label}/")
+    return written
+
+
+def _resolve_client_project(client: str, project: str) -> tuple[Path | None, str]:
+    """Resolve (target_path, label) for a (client, project) tuple, or None if invalid."""
+    if client not in CLIENTS:
+        print(f"Warning: unknown client '{client}'. Skipping client sync.")
+        return None, ""
+    if project:
+        if project not in CLIENTS[client]["projects"]:
+            print(f"Warning: unknown project '{project}' for client '{client}'. Skipping.")
+            return None, ""
+        target = VAULT / "clients" / client / "projects" / project / "memory"
+        label = f"clients/{client}/projects/{project}/memory"
+    else:
+        target = VAULT / "clients" / client / "memory"
+        label = f"clients/{client}/memory"
+    return target, label
+
+
 def cmd_to_vault(args):
     """Sync memory JSONL → vault markdown notes."""
     entities = {}
@@ -147,30 +200,20 @@ def cmd_to_vault(args):
                         if o not in entities[name]["observations"]
                     )
 
-    target = VAULT / "memory"
-    target.mkdir(parents=True, exist_ok=True)
+    # Always sync to global vault memory/
+    _sync_to_dir(entities, VAULT / "memory", "memory")
+    update_index(VAULT / "memory" / "_index.md", entities)
 
-    written = 0
-    for name, entity in sorted(entities.items()):
-        filename = sanitize_name(name)
-        path = target / filename
-        content = entity_to_md(entity)
-        if path.exists():
-            existing = path.read_text(encoding="utf-8")
-            if (
-                len(content) == len(existing)
-                and SequenceMatcher(None, content, existing).ratio() > 0.98
-            ):
-                continue  # Skip if effectively the same
-        path.write_text(content, encoding="utf-8")
-        written += 1
-        print(f"  → {filename}")
-
-    print(f"\nSynced {written} entities to vault memory/")
-
-    # Update memory index
-    index_path = VAULT / "memory" / "_index.md"
-    update_index(index_path, entities)
+    # If --client specified, sync also to the client/project subtree
+    if args.client:
+        target, label = _resolve_client_project(args.client, args.project)
+        if target:
+            # rel_index: for client/project memory, the _index is in the same dir
+            rel_index = "_index"
+            rel_prefix = str(target.relative_to(VAULT))
+            _sync_to_dir(entities, target, label, rel_index)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            update_index(target / "_index.md", entities, rel_prefix)
 
 
 def cmd_from_vault(args):
@@ -193,37 +236,45 @@ def cmd_from_vault(args):
 
 
 def cmd_import_sessions(args):
-    """Import OpenCode session backups into vault daily/."""
+    """Import OpenCode session backups into vault daily/ or client/project daily/."""
     session_dir = Path.home() / ".opencode-sessions"
     if not session_dir.exists():
         print("No sessions directory found.")
         return
 
-    daily_dir = VAULT / "daily"
+    # If --client is specified, sync to client/project daily instead of global daily/
+    if args.client:
+        target, label = _resolve_client_project(args.client, args.project)
+        if not target:
+            return
+        # Replace "memory" with "daily" in the path
+        daily_dir = target.parent / "daily" if args.project else VAULT / "clients" / args.client / "daily"
+    else:
+        daily_dir = VAULT / "daily"
+
     daily_dir.mkdir(parents=True, exist_ok=True)
 
     imported = 0
     for session_file in sorted(session_dir.glob("*.md")):
         date_str = session_file.stem  # YYYY-MM-DD
-        target = daily_dir / f"{date_str}.md"
+        tgt = daily_dir / f"{date_str}.md"
 
-        if target.exists() and not args.force:
+        if tgt.exists() and not args.force:
             continue
 
         content = session_file.read_text(encoding="utf-8", errors="ignore")
-        # Adapt to Obsidian format
         obsidian_content = (
             f"---\ndate: {date_str}\ntags: [daily, session]\n---\n\n{content}"
         )
-        target.write_text(obsidian_content, encoding="utf-8")
+        tgt.write_text(obsidian_content, encoding="utf-8")
         imported += 1
-        print(f"  → daily/{date_str}.md")
+        print(f"  → {daily_dir.name}/{date_str}.md")
 
-    print(f"\nImported {imported} sessions to vault daily/")
+    print(f"\nImported {imported} sessions to vault {daily_dir.relative_to(VAULT)}/")
 
 
-def update_index(index_path: Path, entities: dict):
-    """Update memory/_index.md with a Dataview-compatible listing."""
+def update_index(index_path: Path, entities: dict, rel_prefix: str = "memory"):
+    """Update a memory/_index.md with a Dataview-compatible listing."""
     lines = [
         "---",
         "tags: [memory, index]",
@@ -243,7 +294,7 @@ def update_index(index_path: Path, entities: dict):
         etype = entities[name].get("entityType", "")
         obs_count = len(entities[name].get("observations", []))
         lines.append(
-            f"- [[memory/{filename}|{name}]] — *{etype}* ({obs_count} observaciones)"
+            f"- [[{rel_prefix}/{filename}|{name}]] — *{etype}* ({obs_count} observaciones)"
         )
 
     lines.extend(
@@ -289,7 +340,11 @@ def cmd_watch(args):
                 print(
                     f"\n[{datetime.now().strftime('%H:%M:%S')}] Change detected: {', '.join(changed)}"
                 )
-                cmd_to_vault(None)
+                # Watch always syncs to global memory/ only
+                class WatchArgs:
+                    client = None
+                    project = None
+                cmd_to_vault(WatchArgs())
     except KeyboardInterrupt:
         print("\nStopped.")
 
@@ -298,12 +353,17 @@ def main():
     parser = argparse.ArgumentParser(description="OpenCode ↔ Obsidian Memory Sync")
     sub = parser.add_subparsers(dest="command")
 
-    sub.add_parser("to-vault", help="Sync memory JSONL → vault .md notes")
+    tv = sub.add_parser("to-vault", help="Sync memory JSONL → vault .md notes")
+    tv.add_argument("--client", help="Sync to a specific client subtree (e.g. cmasdental)")
+    tv.add_argument("--project", help="Sync to a specific project within client")
+
     sub.add_parser("from-vault", help="Vault memory/ → stdout as JSONL")
+
     imp = sub.add_parser("import-sessions", help="OpenCode sessions → vault daily/")
-    imp.add_argument(
-        "--force", action="store_true", help="Overwrite existing daily notes"
-    )
+    imp.add_argument("--client", help="Import to a specific client daily/ instead of global daily/")
+    imp.add_argument("--project", help="Import to a specific project daily/ within client")
+    imp.add_argument("--force", action="store_true", help="Overwrite existing daily notes")
+
     sub.add_parser("watch", help="Auto-sync on changes (polling)")
 
     args = parser.parse_args()

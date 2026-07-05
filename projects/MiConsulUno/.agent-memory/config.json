@@ -1,0 +1,14 @@
+{
+  "window_size": 5,
+  "llm_provider": "anthropic",
+  "model": "claude-sonnet-4-6",
+  "max_tokens_response": 2000,
+  "max_archive_tokens": 4000,
+  "agents_md_path": "AGENTS.md",
+  "memory_block_start": "<!-- MEMORY_MANAGER:START -->",
+  "memory_block_end": "<!-- MEMORY_MANAGER:END -->",
+  "obsidian_frontmatter": true,
+  "obsidian_tags": [
+    "memoria-agente"
+  ]
+}

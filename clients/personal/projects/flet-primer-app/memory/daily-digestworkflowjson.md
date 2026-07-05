@@ -1,0 +1,14 @@
+---
+tags: [file, memory]
+date: 2026-07-05
+entityType: file
+---
+
+# daily-digest.workflow.json
+
+- Location: C:\Users\user\second-brain\automation\daily-digest.workflow.json
+- Credentials stripped for template use
+- Imports into n8n via Settings → Import → From File
+
+## Enlaces
+- [[_index|Todas las memorias]]

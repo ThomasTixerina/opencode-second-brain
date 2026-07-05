@@ -4,7 +4,7 @@ tags: [memory, index]
 
 # Memoria Persistente
 
-> Sincronizado desde OpenCode memory stores. Última actualización: 2026-06-18 13:17
+> Sincronizado desde OpenCode memory stores. Última actualización: 2026-07-05 07:09
 
 ## Entradas
 
@@ -25,6 +25,7 @@ tags: [memory, index]
 - [[memory/daily-digestworkflowjson.md|daily-digest.workflow.json]] — *file* (3 observaciones)
 - [[memory/fase5-n8n-automation.md|fase5-n8n-automation]] — *milestone* (5 observaciones)
 - [[memory/flet-flutter-web-workaround.md|flet-flutter-web-workaround]] — *knowledge* (8 observaciones)
+- [[memory/flet-primer-app.md|flet-primer-app]] — *project* (5 observaciones)
 - [[memory/flet-rendering-bug.md|flet-rendering-bug]] — *bug* (7 observaciones)
 - [[memory/miconsuluno-mcp.md|miconsuluno_mcp]] — *project* (13 observaciones)
 - [[memory/miconsuluno-mcp-serverpy.md|miconsuluno_mcp_server.py]] — *file* (4 observaciones)
