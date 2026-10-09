@@ -1,11 +1,11 @@
 ---
 tags: [global, index]
-updated: 2026-07-08
+updated: 2026-10-07
 ---
 
 # Master Index — Estado Global de Proyectos
 
-> Última actualización: 2026-07-08
+> Última actualización: 2026-10-07
 
 ## cmasdental
 
@@ -24,6 +24,9 @@ updated: 2026-07-08
 
 ### voice-cli
 ✅ Producción — Agente de voz TTS (Groq Whisper + edge-tts). Instalado como tarea de inicio en segundo plano.
+
+### dentista-millonario
+🟡 Escritura — Trilogía de libros "Dentista Millonario" (skill nobel-bestseller-engine). Tomo 1 "El arte de la Guerra Dental" con borrador redactado; tomos 2 y 3 solo índice. Fase 0 (intake) en curso. Carpeta: `clients/dr-tomas-tijerina/projects/dentista-millonario/`.
 
 ---
 
