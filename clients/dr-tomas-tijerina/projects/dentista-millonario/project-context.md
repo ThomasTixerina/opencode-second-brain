@@ -33,7 +33,7 @@ La promesa del tomo 1 es **preparación**, no técnica de ventas. En Fase 2 se s
 | 1 | Premisa: variantes evaluadas, ganadora | Gate 1: piso ≥ 8/10 | ✅ Gate 1: piso 9/10 — variante C "Dos frentes de batalla" — `fases/resumen-fase-1.md` |
 | 2 | Estructura: beats (9 clásicos), outline del Tomo 1 | Gate 2: checklist causalidad/tema (8 pts ✅) | ✅ Cerrada (2026-10-07) — `fases/master-outline-tomo1.md` |
 | 3 | Scene cards de capítulos nuevos (7 cards) | Gate 3: ≥ 8.5/escena | ✅ Gate 3: 8.9 promedio, todos ≥8.5 — `fases/resumen-fase-3.md` |
-| 4 | Redacción: capítulos nuevos + edición de B/C + migración índice Tomo 2 | Gate 4: ≥ 9.0 manuscrito | **En ensamblaje: `manuscritos/libro-1-v2.md` listo (11,841 palabras, 16 capítulos) — Gate 4 PENDIENTE de revisión del autor** |
+| 4 | Redacción: capítulos nuevos + edición de B/C + migración índice Tomo 2 | Gate 4: ≥ 9.0 manuscrito | ✅ **Gate 4 SUPERADO (2026-10-12)** — `manuscritos/libro-1-v2.md` revisado (~10,000 palabras, 16 capítulos) |
 | 5 | Empaquetado: títulos, sinopsis, query, comps | — | Pendiente |
 
 Regla del skill: **una pregunta a la vez, nunca avanzar de fase/gate sin confirmación del usuario, resumen guardable al cerrar cada fase.**

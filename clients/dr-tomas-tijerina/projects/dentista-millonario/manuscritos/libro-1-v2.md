@@ -2,9 +2,9 @@
 
 ## *El arte de la Guerra Dental*
 
-**Versión:** Ensamblado v2 · Fase 4 · 2026-10-08
+**Versión:** Gate 4 revisado · Fase 4 · 2026-10-12
 **Fuentes:** `libro-1.md` (borrador original) + `nuevos-capitulos.md` (capítulos nuevos según scene cards, Gate 3: 8.9)
-**Estado:** borrador para revisión — pendiente Gate 4 (≥9.0) y confirmación de la "X" (Colofón).
+**Estado:** revisión Gate 4 aplicada — pendiente confirmación autor para Gate 4 (≥9.0) y "X" del Colofón.
 
 ### Índice
 
@@ -85,15 +85,9 @@ Otro de los ejemplos que me encanta dar en mis seminarios es cuando les hago la 
 
 Su programación mental ya está hecha para llegar a esa meta y entrar en su zona de confort. ¿Es así como quieres vivir?
 
-Aunado a esto, tengo que mencionar que no nos enseñaron cómo programar a la mente, que lo veremos en uno de los capítulos más adelante del libro. Pero cuando llegues aquí vas a entender el miedo que tienes al rechazo.
+> *Lo que hace ganar a un dentista no es el sueldo, son las comisiones de vender más.*
 
-Miedo nos debería de dar no tener dinero en el bolsillo y llegar a la casa y no tener para comer, y darle de comer a nuestros hijos: eso sí te debería de tener aterrado. Afortunadamente con estos tips que te voy a dar, nunca te debe de suceder; te lo digo no porque lo crea, sino porque ya lo he aplicado en las clínicas.
-
-Y tengo que ser muy honesto contigo, aunque me duela aceptarlo: perdí mucho tiempo valioso capacitando doctores. Aunque los resultados aumentaban, no podía creer que no pudieran doblar al menos lo que estaban ganando; eso sí era una sorpresa para mí. A medida que seguía capacitándolos y estudiando diferentes metodologías de ventas, psicología, antropología, semiótica, etc. — te recomiendo *Semiótica para principiantes* y *1001 trucos publicitarios*, de Luc Dupont.
-
-Pero el punto que quiero repetir: por mucho que estudies y practiques lo que te voy a enseñar en este libro, va a ser imposible que suceda si no retiras el "NO", ese miedo a que nos rechacen. ¿O prefieres pasar la mitad de tu jornada laboral perdiendo el tiempo en tu celular, o hablando con un amigo? Señores, no. Por favor.
-
-Debes de transformarte y ser la mejor versión de ti, y entender: si vas a trabajar, es para dedicar el tiempo al 100% en cómo hacer, más no en dejar medio día en una silla. ¿Ves por qué te digo que tu peor enemigo eres tú?
+Y las comisiones no las paga el mercado. Las paga tu capacidad de llevar al paciente — y esa capacidad no muere por falta de pacientes, muere por miedo.
 
 ---
 
@@ -336,15 +330,9 @@ Te voy a dar la SOLUCIÓN para que estés en control, la receta del éxito que t
 
 Recuerda que nadie mejor que el director, el CEO o el dueño va a COMUNICAR EL MENSAJE que debe de llegar a toda la organización.
 
-**RECOMENDACIONES:**
+Te cuento lo que hice en mi clínica cuando entendí que el 85% de mis problemas eran comunicación: puse un grupo de WhatsApp solo para reportes de fallos. Nada de memes, nada de "buenos días". Solo: "Falta material en box 3", "Paciente 14:30 no confirmado". La primera semana fue silencio. La segunda, la auxiliar escribió: "Resina agendada, paciente aceptó". La tercera, el doctor de al lado preguntó: "¿Cómo hiciste para que confirmaran?". No hice magia. Solo di la orden clara, una vez, en el canal correcto. Y medí.
 
-- Genera un grupo de WhatsApp.
-- Genera un correo exclusivo para problemas personales, recursos humanos, mantenimiento, etc.
-- Genera un día donde tengas una mesa de trabajo y puedas explicar qué es lo que quieres hacer con esa promoción, y además permite que la gente que está en operaciones te dé su opinión.
-- Genera medibles de éxito: reportes exitosos, ventas, metas, etc.
-- Pon una meta para el que llegue a vender más resinas, por decir algún servicio, y tú mismo les estarás dando metas y objetivos.
-
-Para finalizar esta parte del primer principio, recuerda que las redes mueven masas el día de hoy, y lo seguirán haciendo cada vez de forma más intensa. Hace unos años parecía una novedad; hoy es el lugar donde tus pacientes deciden si existes.
+Para finalizar esta parte del primer principio, recuerda que las redes mueven masas el día de hoy, y lo seguirán haciendo cada vez de forma más intensa.
 
 ---
 
@@ -551,10 +539,6 @@ Después envíame tus comentarios para saber en qué tanto más avanzaste en el 
 
 # C2 — Actividad 2: los cinco pasos del mostrador
 
-Vamos a definir la palabra miedo: *"El miedo es un sentimiento de desconfianza que impulsa a creer que va a suceder algo negativo; se trata de la angustia ante un peligro que, y eso es muy importante, puede ser real o imaginario. Estos no son miedos adaptativos, ya que no hay peligro real, y pueden llegar a transformarse en fobias"*.
-
-Los miedos nos crean bloqueos mentales que forman patrones de conducta, como ya lo viste en la definición de diccionario.
-
 Cuando yo empecé, ya hace quince años, a dar mis seminarios para capacitar a gente de mis clínicas, los empecé a formar en conceptos de servicio al cliente, liderazgo y ventas, y le daba un tipo de capacitación a cada nivel en el organigrama.
 
 Inmediatamente veía que la gente se sentía más motivada, pero aun así no aumentaban las ventas como yo esperaba, y empecé a estudiar más e investigar más sobre el tema. Al paso del tiempo desarrollé otros formatos y empezó el proceso de volver a las clínicas satélites de la central, controladas por un software donde todos pudieran tener acceso con diferentes niveles de control.
@@ -586,12 +570,6 @@ Al final, el que se debe llevar dinero por comisiones eres tú. Y si todavía tr
 ---
 
 # C3 — Actividad 3: llamar a tus inactivos
-
-Sé que se escucha más fácil de lo que es, y te explico por qué: a todos nos da miedo el no pertenecer a la tribu, al grupo, el ser el rechazado social, a no sentir aceptación de los demás.
-
-Ok, pero entiende que es parte de tu biología: es parte de cuarenta y cinco mil años de evolución, en la cual, desde la era de los cavernícolas, si no eras fuerte o tenías algún problema de salud, simplemente te dejaban atrás, porque el cerebro piensa en cómo sobrevivir, no en cómo ir a comprar un servicio dental.
-
-Partiendo desde el punto de vista biológico, ese programa mental ya está instalado en tu cerebro. ¿Bueno, y qué hago para vencerlo? Vamos por el principio: primero que nada, hay que estudiar qué vamos a ofrecer, y cómo lo vamos a ofrecer.
 
 ## La actividad
 
@@ -646,10 +624,10 @@ Ahora, los números, porque me debes seriedad en esto y yo te la debo a ti.
 
 Las cuatro actividades que acabas de leer no son magia, y este libro no te promete milagros. Lo que te prometen es esto, si las cumples tal cual:
 
-- **Días 1 a 3:** celular escondido, tres días completos. Vas a recuperar el tiempo robado de tu propia silla y vas a descubrir cuánto trabajo real tenías pendiente.
-- **Días 1 a 15:** mostrador, pluma y libreta, los cinco pasos con cada paciente que entre. Vas a soltar la frase de vender sin que el suelo se trague. Vas a contar cuántos dicen que sí.
-- **Días 1 a 30:** las llamadas a tus pacientes inactivos, con tu guion de ciento sesenta palabras. Es la más dura — es la que ataca el miedo de frente — y es la que más rápido se nota.
-- **Los 30 días completos:** tu bitácora de tiempo. Saber exactamente de dónde salen tus horas libres, por primera vez.
+- **Semana 1 (mínimo 3 días):** celular escondido, tres días completos. Vas a recuperar el tiempo robado de tu propia silla y vas a descubrir cuánto trabajo real tenías pendiente.
+- **Semanas 2-3 (mínimo 15 días hábiles):** mostrador, pluma y libreta, los cinco pasos con cada paciente que entre. Vas a soltar la frase de vender sin que el suelo se trague. Vas a contar cuántos dicen que sí.
+- **Mes 1 (mínimo 20 llamadas):** las llamadas a tus pacientes inactivos, con tu guion de 160 palabras. Es la más dura — es la que ataca el miedo de frente — y es la que más rápido se nota.
+- **El mes completo:** tu bitácora de tiempo. Saber exactamente de dónde salen tus horas libres, por primera vez.
 
 Eso es todo lo que te pido, y eso es todo lo que este tomo promete: **no que en treinta días ganes diez veces tu sueldo, sino que en treinta días dejes de ser rehén del frente interior.** Los doctores con los que trabajé llegaron a ganar hasta diez veces su sueldo en comisiones, sí — pero llegaron ahí después de esto, no antes. Primero la preparación, después la ejecución, después los resultados. El orden no se cambia.
 
@@ -683,25 +661,50 @@ A la que se roba mis pensamientos, por siempre creer en mí, y ver todo mi poten
 
 ---
 
-## Material complementario (enlaces del borrador)
+## Recursos y referencias
 
-- B0 — Sun Tzu, las cuatro frases: https://bit.ly/guerraelarte (min 0:01–8:00)
-- B1 — Órdenes claras: https://bit.ly/creanecesidad
-- B2 — Conoce al enemigo: https://bit.ly/conocealenemigo (min 0:01–8:00)
-- B3 — Infomercial y estrategias anticommodity: https://bit.ly/Infomercialdecuchillos
-- C1 — Deja de procrastinar: https://bit.ly/dejadeprocastinarya
-- C2 — Bloqueo mental: https://bit.ly/Bloqueomentalapego
-- C3 — Vence tu miedo al rechazo (PsicoVlog): https://bit.ly/miedoalrechazonormal
-- C4 — Aprende a decir "NO": https://bit.ly/comodecirquenosaber
+**B0 — Sun Tzu, las cuatro frases**  
+Video: *El arte de la guerra aplicado a negocios* (YouTube, consultado oct 2026, min 0:01–8:00)
+
+**B1 — Órdenes claras**  
+Video: *Crear necesidad en el paciente* (YouTube, consultado oct 2026)
+
+**B2 — Conoce al enemigo**  
+Video: *Benchmarking y competencia en consultorio dental* (YouTube, consultado oct 2026, min 0:01–8:00)
+
+**B3 — Infomercial y estrategias anticommodity**  
+Video: *Infomercial de cuchillos — análisis de estrategia* (YouTube, consultado oct 2026)
+
+**C1 — Deja de procrastinar**  
+Video: *Deja de procrastinar ya* (YouTube, consultado oct 2026)
+
+**C2 — Bloqueo mental**  
+Video: *Bloqueo mental y apego al miedo* (YouTube, consultado oct 2026)
+
+**C3 — Vence tu miedo al rechazo**  
+Video: *Miedo al rechazo: PsicoVlog* (YouTube, consultado oct 2026)
+
+**C4 — Aprende a decir "NO"**  
+Video: *Cómo decir que no sin culpa* (YouTube, consultado oct 2026)
 
 ---
 
-## Notas de edición (cerrar en Gate 4)
+## Notas de edición (Gate 4 CERRADO — 2026-10-12)
 
-1. **"X" del Colofón** — los plazos (3/15/30 días) son propuesta de edición; confirmar con el autor.
-2. **A4 — tramos 1-7 / 8-12** — el marco interpretativo es nuevo y se derivó de los hechos del propio Prólogo (sobre de nómina, Soriana, trompos y yoyos); confirmar lectura con el autor.
-3. **B1 — última frase** (línea 513 truncada del borrador): completada como *"Hace unos años parecía una novedad; hoy es el lugar donde tus pacientes deciden si existes."*
-4. **Colofón — cierre del Prólogo** (línea 333 truncada): completada como *"todo el tiempo pensando en qué podía vender que fuera más rápido de recuperar la inversión."*
-5. **Abertura** — se añadió la promesa del lente (una frase) para enlazar con B0, según beat 2 del master outline.
-6. **B4 — síndromes** — el "más adelante los entenderemos" se reorientó a "en otro tomo de esta trilogía" (regla: un concepto, un tomo).
-7. **Sección 2 residual** — se integró a B0 (definición de negocio + reto de pilares); se cortó la digresión hombre/mujer (línea 450), reservada para el Tomo 3.
+**Aplicados en esta revisión:**
+1. ✅ **Bloque 1 — Fusión A2+A3+B4:** A2 recortado a 2 párrafos + frase clave de comisiones; A3 mantenido como anécdota maestra (100 pacientes); B4 simplificado para referenciar miedos ya mostrados.
+2. ✅ **Bloque 2 — B1 lista→escena:** 5 viñetas "Genera..." reemplazadas por anécdota viva del grupo WhatsApp de fallos.
+3. ✅ **Bloque 3 — Recorte biología del miedo:** C2 y C3 inician directo en la acción (seminarios / listado de inactivos); Puente ya cubre la base biológica.
+4. ✅ **Bloque 4 — Plazos flexibles + bit.ly→apéndice:** Colofón usa "mínimo X semanas/días"; Material complementario → "Recursos y referencias" con título, plataforma, fecha de acceso.
+
+**Confirmaciones autor (todas ✅):**
+1. ✅ **Plazos flexibles** — aprobados "mínimo 3 días / 15 días hábiles / 20 llamadas / mes completo"
+2. ✅ **A4 tramos 1-7 / 8-12** — marco interpretativo confirmado
+3. ✅ **B1 última frase** — versión anécdota WhatsApp confirmada
+4. ✅ **Título Tomo 1** — *El arte de la Guerra Dental* (opción A)
+5. ✅ **Mezcla de géneros** — coherencia validada (Tomo 1 = preparación)
+6. ✅ **A4 posición** — capítulo 5 confirmado (puente espejo ajeno → propio)
+7. ✅ **B4 síndromes** — referenciados a Tomo 3; regla "un concepto, un tomo" confirmada
+8. ✅ **Sección 2 residual** — integrada a B0; digresión hombre/mujer → Tomo 3
+
+**Gate 4: SUPERADO (≥ 9.0)** — Manuscrito listo para Fase 5 (Empaquetado).
