@@ -16,6 +16,9 @@ updated: 2026-10-07
 
 ## dr-tomas-tijerina
 
+### atiende
+🟠 Fases 1–4 cerradas — Asistente de IA con WhatsApp dual (YCloud + Baileys de pruebas). Fase 4B-lite implementada y apagada (`WHATSAPP_BAILEYS_ENABLED=false`) hasta emparejar un chip con número real. ADRs `0001–0010`. Código en `C:\Users\user\CRM-Whatsapp` (sin commits). Carpeta: `clients/dr-tomas-tijerina/projects/atiende/`.
+
 ### miconsuluno
 🟡 Desarrollo — Dashboard dental Python Flet. App de escritorio funcional, modo web con bugs de rendering conocidos.
 

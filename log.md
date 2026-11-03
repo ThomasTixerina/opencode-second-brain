@@ -23,3 +23,7 @@ Instalados stitch (oficial, remoto) y stitch-local (@_davideast/stitch-mcp) en l
 ## [2026-10-26] skill | OpenCode Skills — Arquitecto y Revisor de Planes
 
 Instalados globalmente en `C:\Users\user\.config\opencode\skills\`: `grill-me` + `grilling` (mattpocock/skills, ~300k stars) y `architect` + `reviewer` + `decision-log` (garethrhughes/skills, compatibilidad opencode), con `RULES.md` y overlays `rules/`. Flujo: @grill-me → @architect → usuario acepta propuesta → decision-log (ADR) → implementar → @reviewer (PASS / PASS WITH COMMENTS / BLOCK). Convención de aviso automático añadida a `C:\Users\user\.config\opencode\AGENTS.md`. Nota: `skills/opencode-skills-arquitecto.md`
+
+## [2026-11-02] atiende | Fase 4 cerrada + Fase 4B-lite (Baileys) implementada y apagada
+
+Fases 1-4 completas. Canal de pruebas Baileys dentro del worker (ADR-0010), sesión cifrada, QR en Canales y borrado desde el panel; revisión `@reviewer` PASS WITH COMMENTS. `WHATSAPP_BAILEYS_ENABLED="false"` hasta conseguir un chip o eSIM con SMS/voz. 111 pruebas; typecheck, lint y build limpios. Código de la app sin commits. Nota: `clients/dr-tomas-tijerina/projects/atiende/daily/2026-11-02.md`.

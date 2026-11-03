@@ -34,7 +34,7 @@ CLIENTS = {
         "projects": ["whatsapp-automation"],
     },
     "dr-tomas-tijerina": {
-        "projects": ["miconsuluno", "nestjs-supabase-auth", "voice-cli"],
+        "projects": ["miconsuluno", "nestjs-supabase-auth", "voice-cli", "atiende"],
     },
     "personal": {
         "projects": ["flet-primer-app"],
