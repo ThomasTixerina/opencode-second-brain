@@ -4,7 +4,7 @@ tags: [memory, index]
 
 # Memoria Persistente
 
-> Sincronizado desde OpenCode memory stores. Última actualización: 2026-10-12 15:59
+> Sincronizado desde OpenCode memory stores. Última actualización: 2026-11-02 18:23
 
 ## Entradas
 
@@ -12,6 +12,7 @@ tags: [memory, index]
 - [[memory/daily-digest-workflow.md|Daily Digest workflow]] — *n8n* (5 observaciones)
 - [[memory/fase-1---vault-fundacional.md|Fase 1 - Vault Fundacional]] — *project_phase* (3 observaciones)
 - [[memory/lista-de-precios-2026.md|Lista de Precios 2026]] — *Data* (16 observaciones)
+- [[memory/opencode-skills-instalados.md|OpenCode Skills Instalados]] — *configuracion* (13 observaciones)
 - [[memory/plan-segundo-cerebro---6-fases.md|Plan Segundo Cerebro - 6 Fases]] — *plan* (8 observaciones)
 - [[memory/política-precios-cmasdental.md|Política precios Cmasdental]] — *Config* (4 observaciones)
 - [[memory/sesiones.md|Sesiones]] — *Log* (1 observaciones)

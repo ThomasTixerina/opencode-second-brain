@@ -19,3 +19,7 @@ Proyecto nuevo: `clients/dr-tomas-tijerina/projects/dentista-millonario/`. Skill
 ## [2026-10-21] query-archive | MCP de Google Stitch — catálogo de herramientas
 
 Instalados stitch (oficial, remoto) y stitch-local (@_davideast/stitch-mcp) en la config global de OpenCode. 16 tools oficiales + 3 exclusivas (build_site, get_screen_code, get_screen_image). Archivo: `wiki/synthesis/mcp-google-stitch-herramientas.md`
+
+## [2026-10-26] skill | OpenCode Skills — Arquitecto y Revisor de Planes
+
+Instalados globalmente en `C:\Users\user\.config\opencode\skills\`: `grill-me` + `grilling` (mattpocock/skills, ~300k stars) y `architect` + `reviewer` + `decision-log` (garethrhughes/skills, compatibilidad opencode), con `RULES.md` y overlays `rules/`. Flujo: @grill-me → @architect → usuario acepta propuesta → decision-log (ADR) → implementar → @reviewer (PASS / PASS WITH COMMENTS / BLOCK). Convención de aviso automático añadida a `C:\Users\user\.config\opencode\AGENTS.md`. Nota: `skills/opencode-skills-arquitecto.md`
