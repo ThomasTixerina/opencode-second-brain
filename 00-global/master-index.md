@@ -1,11 +1,11 @@
 ---
 tags: [global, index]
-updated: 2026-10-07
+updated: 2026-11-06
 ---
 
 # Master Index — Estado Global de Proyectos
 
-> Última actualización: 2026-10-07
+> Última actualización: 2026-11-06
 
 ## cmasdental
 
@@ -24,6 +24,9 @@ updated: 2026-10-07
 
 ### nestjs-supabase-auth
 🟡 Desarrollo — Librería TypeScript para autenticación Supabase con NestJS y Passport.
+
+### rakazo
+✅ Producción — Agente AI self-hosted (alternativa open source a Grok Bot). Stack Docker de imágenes en `C:\Users\user\rakazo-stack` + checkout de código en `C:\Users\user\rakazo`. Acceso local y por Tailscale HTTPS (`https://tomastijerina.taile52a98.ts.net`), apps iOS/Android, autoarranque con Windows, modelo gratuito de OpenRouter. Carpeta: `clients/dr-tomas-tijerina/projects/rakazo/`.
 
 ### voice-cli
 ✅ Producción — Agente de voz TTS (Groq Whisper + edge-tts). Instalado como tarea de inicio en segundo plano.

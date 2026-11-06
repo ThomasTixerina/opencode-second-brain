@@ -4,7 +4,7 @@ tags: [memory, index]
 
 # Memoria Persistente
 
-> Sincronizado desde OpenCode memory stores. Última actualización: 2026-11-02 18:23
+> Sincronizado desde OpenCode memory stores. Última actualización: 2026-11-06 17:49
 
 ## Entradas
 
