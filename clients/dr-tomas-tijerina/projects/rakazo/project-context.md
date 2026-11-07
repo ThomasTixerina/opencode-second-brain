@@ -154,11 +154,107 @@ BETTER_AUTH_SECRET, ENCRYPTION_KEY, SCREEN_PROXY_SECRET, SANDBOX_SUPERVISOR_TOKE
 **ENCRYPTION_KEY no se puede perder**: sin ella el contenido cifrado es irrecuperable.
 El `.env` del checkout está en `.gitignore` (línea 14). El directorio del stack no es repo git.
 
+## Integraciones: Gmail, Drive, Calendar y MCP (diagnóstico 2026-11-06)
+
+Estado: **sin resolver**. Se investigó a fondo y el bloqueo es técnico, no de configuración.
+Toda esta sección existe para no repetir la investigación.
+
+### Cómo Rakazo integra apps
+
+Dos mecanismos distintos, y conviene no confundirlos:
+
+1. **Catálogo de apps (Plugins)** — requiere `COMPOSIO_API_KEY` (o Pipedream Connect).
+   Fuente: `docs/self-host-integrations.md:127`. Sin esa clave las apps aparecen listadas
+   (metadatos de `integrations.sh`) pero **no pueden autenticar**: quedan en "Added" sin conectar.
+2. **MCP genérico** — cualquier servidor MCP remoto HTTPS, o stdio con allowlist.
+   No depende de Composio.
+
+### Composio: las dos familias de claves
+
+| Tipo | Prefijo | Cabecera | Para qué |
+|---|---|---|---|
+| Consumer key | `ck_` | `x-consumer-api-key` | clientes MCP (lo que emite el dashboard hoy) |
+| Platform key | `ak_` | `x-api-key` | API REST / SDK (lo que Rakazo necesita) |
+
+- La clave se ve en `https://dashboard.composio.dev/<workspace>/~/connect/settings/sessions`.
+- **Trampa:** el valor en pantalla está enmascarado por un grabador de sesión
+  (`<code class="meticulous-redact-recording">`). Lo que se lee (`ck_lrk•••AcdQ`) **no es la clave**;
+  el botón **Copy** sí devuelve el valor real.
+- Rakazo usa el SDK (`new Composio({ apiKey })`), que exige `ak_`. Su propio test lo confirma:
+  `COMPOSIO_API_KEY=ak_shouldnotleak`.
+- Verificado en vivo: `backend.composio.dev/api/v3` con `ck_` → **401 `APIKey_InvalidAPIKey`**.
+- El dashboard actual **no expone `ak_`** (no hay sección Developers/API Keys en el menú).
+
+### MCP de Composio: el círculo cerrado
+
+El endpoint `https://connect.composio.dev/mcp` **sí soporta OAuth** (verificado):
+
+```
+/.well-known/oauth-protected-resource  → 200  resource=…/mcp, authorization_servers=[connect.composio.dev]
+/.well-known/oauth-authorization-server → 200  registration_endpoint presente (registro dinámico)
+```
+
+Pero el alta en Rakazo no lo permite:
+
+- El formulario (Connect apps → Add custom → MCP server) solo ofrece
+  **No authentication / Bearer token / API key header**. No hay opción OAuth.
+- `Verify and add` hace discovery y falla con
+  `{"error":"Authorization required","reason":"No Authorization: Bearer …"}`.
+- Al fallar la verificación **no guarda el servidor**; sin servidor guardado no aparece
+  **Connect OAuth** en "Manage MCP servers" (que es donde la doc dice que vive).
+- Resultado: OAuth se necesita para pasar la verificación, y la verificación es lo que daría acceso a OAuth.
+
+### Por qué sus MCP propios no sirven dentro de Rakazo
+
+23 servidores configurados en OpenCode; casi todos son **binarios de Windows** (`.cmd`, `.exe`,
+rutas `C:\Users\user\...`) y no existen en el contenedor Linux.
+
+- `gdrive-mcp` (el de Google): corre con **Bun** (`#!/usr/bin/env bun`, `engines.bun`), y Rakazo
+  rechaza bun/deno/uv/pipx explícitamente. Además **solo cubre Drive** (search, leer docs,
+  comentarios) — no tiene Gmail ni Calendar.
+- Solo 3 son remotos y reutilizables: `exa` (https://mcp.exa.ai/mcp),
+  `stitch` (https://stitch.googleapis.com/mcp, header `X-Goog-Api-Key`),
+  `cloudflare-api` (https://mcp.cloudflare.com/mcp, OAuth).
+
+### Lo que quedó habilitado (sirve para cualquiera de las rutas futuras)
+
+| Variable | Valor | Por qué |
+|---|---|---|
+| `RAKAZO_ADMIN_EMAILS` | `ttijerina@gmail.com` | los MCP stdio solo los añade un admin |
+| `MCP_STDIO_ENABLED` | `true` | habilita stdio |
+| `MCP_STDIO_ALLOWED_COMMANDS` | `npx,node` | lanzadores permitidos |
+| `MCP_ALLOW_PRIVATE_ENDPOINT` | `true` | permite el puente HTTP desde Windows |
+| `"user"."emailVerified"` | `true` | estaba en `f`; un admin debe estar verificado |
+
+### Rutas para retomar
+
+1. **Pipedream Connect (recomendada)** — evita el muro del OAuth porque es ruta nativa de Rakazo.
+   Solo faltan 4 valores: `PIPEDREAM_CLIENT_ID`, `PIPEDREAM_CLIENT_SECRET`,
+   `PIPEDREAM_PROJECT_ID`, `PIPEDREAM_ENVIRONMENT`. Luego recrear api+worker y conectar
+   Gmail/Drive/Calendar desde el catálogo.
+2. **Composio con `ak_`** — pedir/obtener una platform key. Con ella se enciende el catálogo
+   completo (botones Add/Connect por app).
+3. **Puente HTTP desde Windows** — `supergateway` (o similar) exponiendo los MCP locales por
+   `host.docker.internal`; ya está habilitado `MCP_ALLOW_PRIVATE_ENDPOINT`. Es un proyecto aparte.
+
+## Notas de automatización del navegador
+
+La web de Rakazo no expone árbol de accesibilidad (snapshot ≈ 15 líneas vacías), así que
+`browser.click/fill/files.upload` no sirven (requieren refs). Hay que usar `browser.evaluate` con
+setter nativo + `dispatchEvent('input')`.
+
+**Detalle clave:** los componentes Radix (menús, popovers) **no se abren con `.click()`**. Hay que
+disparar la secuencia `pointerdown` → `mousedown` → `pointerup` → `mouseup` → `click` con
+coordenadas reales del `getBoundingClientRect()`. Sin eso, el menú "Add custom" parece inerte.
+
 ## Pendientes
 
+- [ ] **Integraciones Google** (Gmail/Drive/Calendar): elegir Pipedream (4 claves) o Composio `ak_`.
+      Ver sección de diagnóstico arriba.
 - [ ] Verificar el autoarranque con un reinicio real de Windows
 - [ ] Probar la subida de archivos desde el celular/web (arrastrar `libro-1-v2.md`)
 - [ ] Análisis del manuscrito completo (16 capítulos, 64 KB) — solo se probó la apertura
 - [ ] Decidir política ZDR a largo plazo (free con entrenamiento vs pago con privacidad)
 - [ ] Instalar la app en el celular y validar la conexión por Tailscale
 - [ ] Opcional: arreglar los 8 `execFileSync("pnpm")` de `packages/testkit/` y mandar PR upstream
+- [ ] Opcional: puente HTTP Windows → contenedor para reutilizar los MCP locales
